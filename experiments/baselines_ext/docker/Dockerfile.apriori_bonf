@@ -1,0 +1,22 @@
+# Apriori + post-hoc Bonferroni on Fisher p (unsupervised FWER-controlled).
+# Kept as a container for parity with the other significance-aware baselines;
+# since the implementation is Python-only it can also run directly on the host.
+
+FROM python:3.12-slim
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+RUN pip install --no-cache-dir \
+    numpy==1.26.4 \
+    pandas==2.2.2 \
+    scipy==1.13.1 \
+    mlxtend==0.23.1
+
+COPY apriori_bonferroni.py /work/apriori_bonferroni.py
+
+ENTRYPOINT ["python", "/work/apriori_bonferroni.py"]
+CMD ["--help"]

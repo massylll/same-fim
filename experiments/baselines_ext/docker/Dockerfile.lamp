@@ -1,0 +1,25 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential git ca-certificates \
+        python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+# LAMP: Terada, Okada-Hatakeyama, Tsuda, Sese, PNAS 2013.
+# https://github.com/a-terada/lamp
+RUN git clone --depth 1 https://github.com/a-terada/lamp.git /work/lamp
+
+# Build the C enumerator (lcm53). Under Linux the Py2->Py3 surprises are
+# limited to string/bytes handling, which we patch in run_lamp.py below
+# rather than editing the upstream tree.
+WORKDIR /work/lamp/lcm53
+RUN make || true   # some Makefile targets may need patching; non-fatal
+
+RUN pip3 install --no-cache-dir pandas numpy six scipy
+
+WORKDIR /work
+COPY run_lamp.py /work/run_lamp.py
+
+ENTRYPOINT ["python3", "/work/run_lamp.py"]

@@ -1,0 +1,18 @@
+name: same-fim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip>=24
+  - numpy>=1.23
+  - pandas>=1.5
+  - scipy>=1.10
+  - scikit-learn>=1.2
+  - psutil>=5.9
+  - matplotlib>=3.7
+  - pip:
+      - pyroaring>=0.4
+      - mlxtend>=0.23       # Apriori / FP-Growth baselines and Apriori+Bonferroni
+      - PAMI>=2024.0        # FPGrowth / ECLAT / CHARM-closed baselines
+      - scikit-mine>=1.0    # SLIM baseline
+      - pytest>=7.0         # run the test suite in tests/

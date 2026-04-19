@@ -1,0 +1,29 @@
+FROM ubuntu:22.04
+
+# Build toolchain + Python for I/O wrapper
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential git ca-certificates \
+        python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+# SPuManTE: Pellegrina, Riondato, Vandin, KDD 2019.
+# https://github.com/VandinLab/SPuManTE
+RUN git clone --depth 1 https://github.com/VandinLab/SPuManTE.git /work/SPuManTE
+
+# Build the 'enumerate' (unconditional, closed) binary
+WORKDIR /work/SPuManTE/unconditional/enumerate
+RUN rm -f fim_closed && make
+
+# Build the 'correct' (LAMP-in-SPuManTE) binary
+WORKDIR /work/SPuManTE/unconditional/correct
+RUN rm -f fim_closed && make
+
+# Python deps for I/O adapters
+RUN pip3 install --no-cache-dir pandas numpy
+
+WORKDIR /work
+COPY run_spumante.py /work/run_spumante.py
+
+ENTRYPOINT ["python3", "/work/run_spumante.py"]

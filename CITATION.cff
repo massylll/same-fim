@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use same-fim in academic work, please cite the paper below."
+title: "same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining"
+version: "0.7.0"
+license: MIT
+repository-code: "https://github.com/usthb/fim-same"
+url: "https://pypi.org/project/same-fim/"
+date-released: "2026-04-18"
+authors:
+  - family-names: Necir
+    given-names: Hamid
+    email: ncrhmd@yahoo.fr
+    affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
+  - family-names: Benarab
+    given-names: Massyl
+    email: massylbenarab28@gmail.com
+    orcid: "https://orcid.org/0009-0006-9405-3374"
+    affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
+keywords:
+  - frequent itemset mining
+  - association rules
+  - statistical significance
+  - FWER control
+  - Tarone-Bonferroni
+  - entropy
+  - neuroimaging
+  - population genomics
+preferred-citation:
+  type: article
+  title: "SAME: Similarity-Adaptive Monotonic Entropy Based Method for Frequent Itemsets Extraction"
+  authors:
+    - family-names: Necir
+      given-names: Hamid
+    - family-names: Benarab
+      given-names: Massyl
+  journal: "e-Informatica Software Engineering Journal"
+  year: 2026
+  notes: "Under review."

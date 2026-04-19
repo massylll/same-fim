@@ -1,0 +1,28 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential wget ca-certificates \
+        python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+# Kingfisher: Hamalainen 2012.
+# Author site: http://www.cs.helsinki.fi/u/whamalai/kingfisher/
+# (URL fetched at build time; verify the tar the first time you build.)
+RUN wget -q http://www.cs.helsinki.fi/u/whamalai/kingfisher/kingfisher.tar.gz \
+      -O /tmp/kingfisher.tar.gz \
+    && tar -xzf /tmp/kingfisher.tar.gz -C /work \
+    && rm /tmp/kingfisher.tar.gz
+
+# Kingfisher's directory name may vary with release; probe it
+RUN KF=$(ls -d /work/kingfisher* | head -n1) && \
+    echo "KF=$KF" > /work/.kf_path && \
+    cd "$KF" && make || true
+
+RUN pip3 install --no-cache-dir pandas numpy
+
+WORKDIR /work
+COPY run_kingfisher.py /work/run_kingfisher.py
+
+ENTRYPOINT ["python3", "/work/run_kingfisher.py"]

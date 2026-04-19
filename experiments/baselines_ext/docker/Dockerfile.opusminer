@@ -1,0 +1,19 @@
+FROM rocker/r-ver:4.5.1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pandas python3-numpy ca-certificates \
+        libxml2-dev libcurl4-openssl-dev libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# OPUS Miner: Webb & Vreeken, IEEE TKDE 2014.  Install `arules` dependency
+# first, then the opusminer package itself.
+RUN R -e "install.packages(c('arules','Rcpp'), repos='https://cran.r-project.org')"
+RUN R -e "install.packages('opusminer', repos='https://cran.r-project.org')"
+RUN R -e "library(opusminer); cat('opusminer loaded OK\n')"
+
+WORKDIR /work
+
+COPY run_opusminer.py /work/run_opusminer.py
+COPY run_opusminer.R /work/run_opusminer.R
+
+ENTRYPOINT ["python3", "/work/run_opusminer.py"]

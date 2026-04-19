@@ -1,0 +1,33 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential git ca-certificates libgsl-dev \
+        python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+# WYlight: Llinares-Lopez, Sugiyama, Papaxanthos, Borgwardt, KDD 2015.
+# https://github.com/BorgwardtLab/WYlight
+RUN git clone --depth 1 https://github.com/BorgwardtLab/WYlight.git /work/WYlight
+
+WORKDIR /work/WYlight
+# Rebuild each subdirectory with Linux toolchain (pre-built binaries in the
+# repo are macOS/x86_64 and do not run inside an Ubuntu container).
+# Add -lm to the gcc lines of each makefile (WYlight 2015 Makefiles were
+# authored against a libgcc that linked libm implicitly).
+RUN for d in lcm_wy_fisher lcm_lamp_fisher lcm_comp_pvalues_fisher lcm_fastwy; do \
+      mk="$d/makefile"; \
+      [ -f "$mk" ] || mk="$d/Makefile"; \
+      [ -f "$mk" ] || continue; \
+      sed -i -E 's/(gcc[^\n]*lcm\.c)([^-])/\1 -lm \2/' "$mk" 2>/dev/null || true; \
+      sed -i -E 's/(gcc[^\n]*lcm\.c)$/\1 -lm/'         "$mk" 2>/dev/null || true; \
+      echo "--- building $d ---" && (cd "$d" && rm -f fim_closed *.o && make || true); \
+    done
+
+RUN pip3 install --no-cache-dir pandas numpy
+
+WORKDIR /work
+COPY run_wylight.py /work/run_wylight.py
+
+ENTRYPOINT ["python3", "/work/run_wylight.py"]

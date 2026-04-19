@@ -1,0 +1,17 @@
+FROM eclipse-temurin:21-jre-jammy
+
+# Python for the I/O wrapper
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pandas python3-numpy ca-certificates wget \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+# SPMF v2.64+ (latest stable, requires Java 21)
+# http://www.philippe-fournier-viger.com/spmf/
+RUN wget -q http://www.philippe-fournier-viger.com/spmf/spmf.jar -O /work/spmf.jar \
+    && java -jar /work/spmf.jar run FPClose contextPasquier99.txt output.txt 0.4 2>&1 | head -2 || true
+
+COPY run_spmf.py /work/run_spmf.py
+
+ENTRYPOINT ["python3", "/work/run_spmf.py"]

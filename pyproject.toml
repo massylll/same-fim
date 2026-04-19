@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "same-fim"
+version = "0.7.0"
+description = "Similarity-Adaptive Monotonic Entropy: frequent-itemset mining with FWER-controlled rules."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Hamid Necir", email = "ncrhmd@yahoo.fr"},
+    {name = "Massyl Benarab", email = "massylbenarab28@gmail.com"},
+]
+keywords = [
+    "frequent itemset mining",
+    "association rules",
+    "statistical significance",
+    "FWER",
+    "Tarone-Bonferroni",
+    "entropy",
+    "neuroimaging",
+    "genomics",
+    "bioinformatics",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scipy>=1.10",
+    "scikit-learn>=1.2",
+    "pyroaring>=0.4",
+    "psutil>=5.9",
+]
+
+[project.optional-dependencies]
+baselines = [
+    "mlxtend>=0.23",
+    "PAMI>=2024.0",
+    "scikit-mine>=1.0",
+]
+dev = [
+    "pytest>=7.0",
+    "matplotlib>=3.7",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.urls]
+Repository = "https://github.com/usthb/same-fim"
+Issues = "https://github.com/usthb/same-fim/issues"
+
+[project.scripts]
+same-mine = "same_fim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["same_fim*"]
