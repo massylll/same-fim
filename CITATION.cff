@@ -3,9 +3,9 @@ message: "If you use same-fim in academic work, please cite the paper below."
 title: "same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining"
 version: "0.7.0"
 license: MIT
-repository-code: "https://github.com/usthb/fim-same"
+repository-code: "https://github.com/massylll/same-fim"
 url: "https://pypi.org/project/same-fim/"
-date-released: "2026-04-18"
+date-released: "2026-04-20"
 authors:
   - family-names: Necir
     given-names: Hamid

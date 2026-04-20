@@ -59,8 +59,8 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/usthb/same-fim"
-Issues = "https://github.com/usthb/same-fim/issues"
+Repository = "https://github.com/massylll/same-fim"
+Issues = "https://github.com/massylll/same-fim/issues"
 
 [project.scripts]
 same-mine = "same_fim.cli:main"
