@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use same-fim in academic work, please cite the paper below."
 title: "same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining"
-version: "0.7.2"
+version: "0.7.3"
 license: MIT
 repository-code: "https://github.com/massylll/same-fim"
 url: "https://pypi.org/project/same-fim/"
