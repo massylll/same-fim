@@ -6,6 +6,13 @@ license: MIT
 repository-code: "https://github.com/massylll/same-fim"
 url: "https://pypi.org/project/same-fim/"
 date-released: "2026-04-20"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19663187"
+    description: "Concept DOI (always resolves to the latest archived version)"
+  - type: doi
+    value: "10.5281/zenodo.19663188"
+    description: "Version DOI for same-fim 0.7.3"
 authors:
   - family-names: Necir
     given-names: Hamid

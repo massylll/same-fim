@@ -1,5 +1,9 @@
 # same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining
 
+[![DOI](https://zenodo.org/badge/1215897959.svg)](https://doi.org/10.5281/zenodo.19663187)
+[![PyPI](https://img.shields.io/pypi/v/same-fim.svg)](https://pypi.org/project/same-fim/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Python reference implementation of **SAME**, a frequent-itemset miner that
 (1) derives its support thresholds from the information content of the data,
 and (2) attaches a Tarone--Bonferroni FWER guarantee to every returned rule.
