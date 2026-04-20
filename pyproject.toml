@@ -4,13 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "same-fim"
-version = "0.7.1"
+version = "0.7.2"
 description = "Similarity-Adaptive Monotonic Entropy: frequent-itemset mining with FWER-controlled rules."
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
+# `authors` populate the `Author:` line on PyPI (names-only → both co-authors shown).
+# `maintainers` lists the software maintainer-of-record per the paper's CRediT
+# statement: Massyl Benarab (Software / Data curation / Investigation /
+# Validation / Visualization / Writing). Hamid Necir contributed supervision
+# and review and is therefore an author but not a package maintainer.
 authors = [
-    {name = "Hamid Necir", email = "ncrhmd@yahoo.fr"},
+    {name = "Hamid Necir"},
+    {name = "Massyl Benarab"},
+]
+maintainers = [
     {name = "Massyl Benarab", email = "massylbenarab28@gmail.com"},
 ]
 keywords = [
