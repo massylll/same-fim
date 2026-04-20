@@ -116,7 +116,7 @@ standard statistical confidence level `alpha`.
 ## Citation
 
 ```bibtex
-@article{necir2026same,
+@article{necirbenarab2026same,
   author  = {Hamid Necir and Massyl Benarab},
   title   = {{SAME}: Similarity-Adaptive Monotonic Entropy Based Method for
              Frequent Itemsets Extraction},
