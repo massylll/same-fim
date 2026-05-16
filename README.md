@@ -8,9 +8,9 @@ Python reference implementation of **SAME**, a frequent-itemset miner that
 (1) derives its support thresholds from the information content of the data,
 and (2) attaches a Tarone--Bonferroni FWER guarantee to every returned rule.
 
-Full method, theorems, and evaluation: Necir & Benarab, "SAME: Similarity-Adaptive
+Full method, theorems, and evaluation: Benarab, Necir & Aoures, "SAME: Similarity-Adaptive
 Monotonic Entropy Based Method for Frequent Itemsets Extraction" (2026, under
-review at e-Informatica Software Engineering Journal).
+review at *Big Data Mining and Analytics*).
 
 ## Install
 
@@ -120,11 +120,11 @@ standard statistical confidence level `alpha`.
 ## Citation
 
 ```bibtex
-@article{necirbenarab2026same,
-  author  = {Hamid Necir and Massyl Benarab},
+@article{benarab2026same,
+  author  = {Massyl Benarab and Hamid Necir and Younes Aoures},
   title   = {{SAME}: Similarity-Adaptive Monotonic Entropy Based Method for
              Frequent Itemsets Extraction},
-  journal = {e-Informatica Software Engineering Journal},
+  journal = {Big Data Mining and Analytics},
   year    = {2026},
   note    = {Under review}
 }

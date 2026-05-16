@@ -1,6 +1,6 @@
 """same-fim: Similarity-Adaptive Monotonic Entropy frequent-itemset mining.
 
-See README.md or the companion paper (Necir & Benarab, 2026) for the method
+See README.md or the companion paper (Benarab, Necir & Aoures, 2026) for the method
 and evaluation. The public API exposes SAME (the miner) and a handful of
 helper functions used by the paper's baselines.
 
@@ -26,7 +26,7 @@ from .core import (
 
 Rule = AssociationRule  # public alias
 
-__version__ = "0.7.3"
+__version__ = "0.8.0"
 
 __all__ = [
     "SAME", "SAMEResult", "Itemset", "AssociationRule", "Rule",

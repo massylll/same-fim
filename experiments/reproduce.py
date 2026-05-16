@@ -12,8 +12,9 @@ Runs the following in order (each step checkpoints its own CSV under
   4. downstream EEG              run_downstream_eeg.py
   5. auto-hyperparam ablation    run_auto_ablation.py
 
-Then wires the CSVs into the EINF-PAPER/ folder and regenerates figures
-(needs matplotlib).
+Then wires the CSVs into the sibling paper folder (set via the
+SAME_PAPER_DIR env var; defaults to ../paper) and regenerates figures
+(needs matplotlib). If no paper folder is found the wiring step is skipped.
 """
 from __future__ import annotations
 import subprocess
@@ -21,7 +22,17 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PAPER = ROOT.parent / "EINF-PAPER"
+# Resolve the sibling paper folder for figure/CSV wiring. Override with the
+# SAME_PAPER_DIR env var; fall back to common names found in the wild.
+import os as _os
+_candidates = [
+    _os.environ.get("SAME_PAPER_DIR"),
+    ROOT.parent / "paper",
+    ROOT.parent / "BDMA_submission",
+    ROOT.parent / "EINF-PAPER",
+]
+PAPER = next((Path(c) for c in _candidates if c and Path(c).exists()),
+             ROOT.parent / "paper")
 
 STEPS = [
     ("domain benchmark",          "experiments/run_domain_benchmark.py"),

@@ -1,27 +1,31 @@
 cff-version: 1.2.0
 message: "If you use same-fim in academic work, please cite the paper below."
 title: "same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining"
-version: "0.7.3"
+version: "0.8.0"
 license: MIT
 repository-code: "https://github.com/massylll/same-fim"
 url: "https://pypi.org/project/same-fim/"
-date-released: "2026-04-20"
+date-released: "2026-05-17"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19663187"
     description: "Concept DOI (always resolves to the latest archived version)"
   - type: doi
     value: "10.5281/zenodo.19663188"
-    description: "Version DOI for same-fim 0.7.3"
+    description: "Version DOI for the first archived release (0.7.0)"
 authors:
-  - family-names: Necir
-    given-names: Hamid
-    email: ncrhmd@yahoo.fr
-    affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
   - family-names: Benarab
     given-names: Massyl
     email: massylbenarab28@gmail.com
     orcid: "https://orcid.org/0009-0006-9405-3374"
+    affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
+  - family-names: Necir
+    given-names: Hamid
+    email: ncrhmd@yahoo.fr
+    affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
+  - family-names: Aoures
+    given-names: Younes
+    email: aouresyounes11@gmail.com
     affiliation: "Faculty of Computer Science, USTHB, Algiers, Algeria"
 keywords:
   - frequent itemset mining
@@ -32,14 +36,17 @@ keywords:
   - entropy
   - neuroimaging
   - population genomics
+  - protein-family analysis
 preferred-citation:
   type: article
   title: "SAME: Similarity-Adaptive Monotonic Entropy Based Method for Frequent Itemsets Extraction"
   authors:
-    - family-names: Necir
-      given-names: Hamid
     - family-names: Benarab
       given-names: Massyl
-  journal: "e-Informatica Software Engineering Journal"
+    - family-names: Necir
+      given-names: Hamid
+    - family-names: Aoures
+      given-names: Younes
+  journal: "Big Data Mining and Analytics"
   year: 2026
   notes: "Under review."
