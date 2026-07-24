@@ -122,9 +122,8 @@ standard statistical confidence level `alpha`.
 ```bibtex
 @article{benarab2026same,
   author  = {Massyl Benarab and Hamid Necir and Younes Aoures},
-  title   = {{SAME}: Similarity-Adaptive Monotonic Entropy Based Method for
-             Frequent Itemsets Extraction},
-  journal = {Big Data Mining and Analytics},
+  title   = {{SAME}: Similarity-Aware Monotonic Entropy for FWER-controlled association-rule mining without a minimum-support threshold},
+  journal = {Springer KAIS},
   year    = {2026},
   note    = {Under review}
 }
