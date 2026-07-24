@@ -1,4 +1,4 @@
-# same-fim: Similarity-Adaptive Monotonic Entropy for frequent itemset mining
+# same-fim: Similarity-Aware Monotonic Entropy for FWER-controlled association-rule mining without a minimum-support threshold
 
 [![DOI](https://zenodo.org/badge/1215897959.svg)](https://doi.org/10.5281/zenodo.19663187)
 [![PyPI](https://img.shields.io/pypi/v/same-fim.svg)](https://pypi.org/project/same-fim/)
