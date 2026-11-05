@@ -62,26 +62,6 @@ the downstream classification probes on ABIDE and EEG, the
 auto-hyperparameter ablation, and regenerates every figure in the paper's
 `fig_v2/` directory.
 
-### Seeded variance run (Table `tab:variance`)
-
-The single-seed numbers in the main tables are supplemented by a 5-seed
-variance run whose output populates `\TBD{...}` placeholders in the LaTeX:
-
-```bash
-python experiments/bench_seeded.py \
-    --seeds 5 --timeout 1800 \
-    --datasets abide eeg synth_neuro clinvar pfam \
-    --methods same_dfs same_opus apriori apriori_bonferroni fpgrowth \
-    --out results/variance.csv
-
-# From ../EINF-PAPER/, inject the CSV values into paper.tex in-place.
-python wire_variance.py --csv ../SAME_v4/experiments/results/variance.csv \
-                       --tex paper.tex
-```
-
-`wire_variance.py` writes a `.bak` on first run and is idempotent: re-running
-with a refreshed CSV overwrites any previously substituted cells.
-
 ### Apriori + post-hoc Bonferroni baseline
 
 ```bash
